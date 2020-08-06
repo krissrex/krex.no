@@ -1,0 +1,23 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    // This plugin is broken and destroys our css on save.
+    "source.fixAll.stylelint": false
+  },
+  "cSpell.ignorePaths": [
+    "**/package-lock.json",
+    "**/yarn.lock",
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "**/.git/objects/**",
+    ".vscode",
+    "dist"
+  ],
+  "search.exclude": {
+    "**/*.code-search": true,
+    "**/bower_components": true,
+    "**/dist": true,
+    "**/node_modules": true
+  }
+  
+}
