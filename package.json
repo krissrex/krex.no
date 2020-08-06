@@ -1,7 +1,15 @@
 {
-  "name": "my-blog",
+  "name": "krex.no",
   "version": "1.0.0",
-  "description": "My blog",
+  "description": "A personal website",
+  "private": true,
+  "license": "Apache-2.0",
+  "keywords": [
+    "blog",
+    "krex.no",
+    "website",
+    "static-site"
+  ],
   "scripts": {
     "build-dev:webpack": "webpack",
     "watch:webpack": "webpack --watch",
@@ -18,16 +26,15 @@
     "format": "run-s format:*",
     "lint": "eslint --ext .js ."
   },
-  "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "autoprefixer": "^9.8.0",
     "copy-webpack-plugin": "^6.0.2",
-    "css-loader": "^3.5.3",
+    "css-loader": "^4.2.1",
     "cssnano": "^4.1.10",
     "date-fns": "^2.14.0",
-    "eleventy-plugin-lazyimages": "^1.1.2",
+    "eleventy-plugin-lazyimages": "^2.0.1",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.21.2",

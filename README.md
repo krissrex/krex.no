@@ -40,7 +40,7 @@ Production-ready in mind:
 
 ### Requirements
 
-- Node.js and npm
+- Node.js and yarn
 
 ### Premium Themes
 
@@ -59,13 +59,13 @@ Run the following command on your local environment:
 ```
 git clone --depth=1 https://github.com/ixartz/Eleventy-Starter-Boilerplate.git my-project-name
 cd my-project-name
-npm install
+yarn install
 ```
 
 Then, you can run locally in development mode with live reload:
 
 ```
-npm run dev
+yarn dev
 ```
 
 Open http://localhost:8080 with your favorite browser to see your blog.
@@ -103,7 +103,7 @@ You can easily configure Eleventy Starter Boilerplate. Please change the followi
 You can see the results locally in production mode with:
 
 ```
-npm run serve
+yarn serve
 ```
 
 The generated HTML and CSS files are minified. It will also removed unused CSS from [Tailwind CSS](https://tailwindcss.com).
@@ -111,7 +111,7 @@ The generated HTML and CSS files are minified. It will also removed unused CSS f
 You can create an optimized production build with:
 
 ```
-npm run build
+yarn build
 ```
 
 Now, your blog is ready to be deployed. All generated files are located at `_site` folder, which you can deploy with any hosting service.
