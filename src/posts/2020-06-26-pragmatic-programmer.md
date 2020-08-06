@@ -7,53 +7,46 @@ tags:
   - pragmatic programmer
   - terminal
 ---
-<link
-href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
-<img src="/assets/images/post/pragmatic-tips.png" alt="Preview of pragmatic console tips">
-<br/>
-<div>
-<p>
-Install the following software: <code>jq</code>.    
-</p>
-<p>Download <a href="/assets/downloads/post/pragmatic-tips.json">pragmatic-tips.json</a> and
+![Preview of pragmatic console tips](/assets/images/post/pragmatic-tips.png)
+
+Install the following software: `jq`.  
+Download [pragmatic-tips.json](/assets/downloads/post/pragmatic-tips.json) and
 place it somewhere your console can read it.
-</p>
-<p>Place the following code in
-<code>/etc/profile.d/pragmatic-tips.sh</code>:
 
-<pre><code class="language-bash" data-lang="bash">
+Place the following code in
+`/etc/profile.d/pragmatic-tips.sh`:
+
+```bash
 #!/bin/bash
 
 function _pragmatic_tip() {
-    local TIPS="/c/Dev/Tools/pragmatic-tips.json"
+  local TIPS="/c/Dev/Tools/pragmatic-tips.json"
 
-    if [ -f "$TIPS" ] && [ "$(command -v jq)" != "" ]; then
-        local TIP_SIZE=100
-        local INDEX=$(( RANDOM % TIP_SIZE ))
-        local TIP=$(jq -c ".[$INDEX]" "$TIPS")
+  if [ -f "$TIPS" ] && [ "$(command -v jq)" != "" ]; then
+    local TIP_SIZE=100
+    local INDEX=$(( RANDOM % TIP_SIZE ))
+    local TIP=$(jq -c ".[$INDEX]" "$TIPS")
 
-        local INDENT="  "
-        local NUMBER=$(echo $TIP | jq -r '.number')
-        local TITLE=$(echo $TIP | jq -r '.title')
-        local TEXT=$(echo $TIP | jq -r '.text' | fold -w 50 --spaces | sed "s/^/$INDENT/g")
+    local INDENT="  "
+    local NUMBER=$(echo $TIP | jq -r '.number')
+    local TITLE=$(echo $TIP | jq -r '.title')
+    local TEXT=$(echo $TIP | jq -r '.text' | fold -w 50 --spaces | sed "s/^/$INDENT/g")
 
-        printf "$INDENT\e[90m$NUMBER$INDENT\e[38;5;213m$TITLE\n\e[38;5;198m$TEXT\e[39m"
-    fi
-
+    printf "$INDENT\e[90m$NUMBER$INDENT\e[38;5;213m$TITLE\n\e[38;5;198m$TEXT\e[39m"
+  fi
 }
 
 _pragmatic_tip
-</code></pre>
-</p>
-</div>
+```
 
+## Scraping the tips
 
-<h2>Scraping the tips</h2>
 I used the following script on <a
                                     href="https://pragprog.com/tips/">https://pragprog.com/tips/</a>
 website:
-<pre><code class="language-js" data-lang="js">
+
+```js
 x = [...document.querySelector('.tpp_tips_container').children].map(child =>
     ({
         number: child.querySelector(".tip-number").innerText,
@@ -62,11 +55,5 @@ x = [...document.querySelector('.tpp_tips_container').children].map(child =>
     }));
 
 JSON.stringify(x, null, 4);
-</code></pre>
+```
 Then saved that json to a file.
-    
-    
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
