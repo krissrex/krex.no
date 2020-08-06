@@ -4,5 +4,9 @@ a {
   @apply text-blue-700 underline font-bold;
 }
 
+pre {
+  @apply max-w-screen-md;
+}
+
 @tailwind components;
 @tailwind utilities;
