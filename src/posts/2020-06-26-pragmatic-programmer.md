@@ -2,7 +2,8 @@
 title: 'Pragmatic programmer console tips'
 description: Pragmatic programmer console tips
 date: 2020-06-26 10:37:00
-tags:
+tags: 
+  - posts
   - pragmatic programmer
   - terminal
 ---
