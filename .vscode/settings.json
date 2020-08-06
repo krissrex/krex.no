@@ -11,13 +11,12 @@
     "**/vscode-extension/**",
     "**/.git/objects/**",
     ".vscode",
-    "dist"
+    "_site"
   ],
   "search.exclude": {
     "**/*.code-search": true,
     "**/bower_components": true,
-    "**/dist": true,
+    "_site/": true,
     "**/node_modules": true
   }
-  
 }
