@@ -70,5 +70,8 @@
     "*.json": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.2.0"
   }
 }
