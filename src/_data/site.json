@@ -1,8 +1,8 @@
 {
-  "site_name": "Hello",
-  "title": "Hello personal blog",
-  "description": "Blog description",
-  "url": "https://example.com",
+  "site_name": "Kristian's website",
+  "title": "Kristian's website",
+  "description": "A personal blog",
+  "url": "https://krex.no",
   "locale": "en",
-  "author": "Anonymous"
+  "author": "Kristian Rekstad"
 }
