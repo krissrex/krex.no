@@ -19,9 +19,5 @@
     "_site/": true,
     "**/node_modules": true
   },
-  "cSpell.words": [
-    "Kristian",
-    "Kristian's",
-    "Rekstad"
-  ]
+  "cSpell.words": ["Kristian", "Kristian's", "Rekstad"]
 }
