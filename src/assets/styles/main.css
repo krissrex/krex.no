@@ -16,6 +16,22 @@ pre {
   display: none;
 }
 
+.prose a.header-anchor {
+  @apply opacity-25 no-underline;
+  float: left;
+  padding-top: 0.5em;
+  margin-left: -27px;
+  padding-right: 4px;
+  line-height: 1;
+  box-sizing: border-box;
+  font-size: 16px;
+
+  visibility: hidden;
+}
+
+.prose :hover a.header-anchor {
+  visibility: visible;
+}
 
 @tailwind components;
 @tailwind utilities;

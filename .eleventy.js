@@ -76,6 +76,15 @@ module.exports = function (eleventyConfig) {
       allowedAttributes: ['id', 'class', /^data-.*$/]
     }); 
 
+    const markdownItAnchor = require("markdown-it-anchor");
+    markdownLib.use(markdownItAnchor, {
+      permalink: true,
+      permalinkSymbol: "🔗",
+      permalinkBefore: true,
+      permalinkClass: 'header-anchor',
+      permalinkAttrs: () => ({"aria-hidden": "true"})
+    });
+
     eleventyConfig.setLibrary('md', markdownLib);
   }
 
