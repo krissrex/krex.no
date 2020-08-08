@@ -8,6 +8,17 @@ pre {
   @apply max-w-screen-md;
 }
 
+kbd {
+  @apply inline-block align-middle font-mono text-sm;
+  color: #444d56;
+  padding: 3px 5px;
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 rgb(226, 232, 240);
+  line-height: 10px;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+}
+
 .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
   @apply font-sans;
 }
