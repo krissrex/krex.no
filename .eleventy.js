@@ -70,8 +70,11 @@ module.exports = function (eleventyConfig) {
     const markdownLib = markdownIt(options);
     markdown.enhanceLinks(markdownLib);
 
-    const markdownItAttrs = require('markdown-it-attrs');
-    markdownLib.use(markdownItAttrs); // Allows style to be added with {.myClass #id attr=value attr2="some value"}
+    // Allows style to be added with {.myClass #id attr=value attr2="some value"}
+    const markdownItAttrs = require('markdown-it-attrs'); 
+    markdownLib.use(markdownItAttrs, {
+      allowedAttributes: ['id', 'class', /^data-.*$/]
+    }); 
 
     eleventyConfig.setLibrary('md', markdownLib);
   }
