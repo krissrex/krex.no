@@ -2,10 +2,11 @@ const htmlmin = require('html-minifier');
 const dateFns = require('date-fns');
 const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const chalk = require('chalk');
 
 const markdown = {
-  /** Will add `target="_blank"` for links. */
-  addLinkTarget(md) {
+  /** Will add `target="_blank"` for links and convert http to https. */
+  enhanceLinks(md) {
     // Remember old renderer, if overridden, or proxy to default renderer
     const defaultRender =
       md.renderer.rules.link_open ||
@@ -23,10 +24,17 @@ const markdown = {
           return defaultRender(tokens, idx, options, env, self);
         }
 
-        if (href && href.startsWith("http://")) {
-          const httpsHref = href.replace("http://", "https://")
+        if (href && href.startsWith('http://')) {
+          // If you really want http, this is case sensitive. Write HTTP and it should not be corrected
+          const httpsHref = href.replace('http://', 'https://');
           token.attrs[hrefAttributeIndex][1] = httpsHref;
-          console.log("Markdown - replaced http with https in ", href);
+          console.log('Markdown - replaced http with https in ', href);
+        } else if (href && href.toLowerCase().startsWith('http://')) {
+          console.log(
+            chalk.red(
+              'Markdown - not replacing http with https because it is not lowercase on ' + href
+            )
+          );
         }
 
         console.log("Markdown - adding target='_blank' to ", href);
@@ -60,7 +68,7 @@ module.exports = function (eleventyConfig) {
       html: true,
     };
     const markdownLib = markdownIt(options);
-    markdown.addLinkTarget(markdownLib);
+    markdown.enhanceLinks(markdownLib);
 
     eleventyConfig.setLibrary('md', markdownLib);
   }
