@@ -4,12 +4,12 @@ layout: layouts/base.ejs
 
 <article class="post">
   <header>
-    <h1 class="font-bold text-3xl text-center"><%= title %></h1>
-    <div class="text-gray-600 text-center">
+    <h1 class="font-normal text-3xl font-serif"><%= title %></h1>
+    <div class="text-gray-600">
       <%= this.dateFns.format(new Date(date), 'LLLL d, yyyy') %>
     </div>
   </header>
-  <section class="pt-3 pb-3 prose mx-auto">
+  <section class="pt-3 pb-3 prose font-serif mx-auto">
     <%- content %>
   </section>
   <footer class="mb-12 mt-2 pt-2 border-t">
