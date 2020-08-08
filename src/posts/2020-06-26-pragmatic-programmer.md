@@ -8,9 +8,7 @@ tags:
   - terminal
 ---
 
-<p>
-  <img class="w-full" src="/assets/images/posts/pragmatic-tips.png" alt="Preview of pragmatic console tips">
-</p>
+![Preview of pragmatic console tips](/assets/images/posts/pragmatic-tips.png){.w-full}
 
 Install the following software: `jq`.  
 Download [pragmatic-tips.json](/assets/downloads/posts/pragmatic-tips.json) and
