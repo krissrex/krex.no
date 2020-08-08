@@ -3,7 +3,68 @@ const dateFns = require('date-fns');
 const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
+const markdown = {
+  /** Will add `target="_blank"` for links. */
+  addLinkTarget(md) {
+    // Remember old renderer, if overridden, or proxy to default renderer
+    const defaultRender =
+      md.renderer.rules.link_open ||
+      function (tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options);
+      };
+
+    md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+      const token = tokens[idx];
+      const hrefAttributeIndex = token.attrIndex('href');
+      if (hrefAttributeIndex != -1) {
+        const href = token.attrs[hrefAttributeIndex][1];
+        if (!href || href.startsWith('/') || href.startsWith('#')) {
+          // Don't add target for internal links.
+          return defaultRender(tokens, idx, options, env, self);
+        }
+
+        if (href && href.startsWith("http://")) {
+          const httpsHref = href.replace("http://", "https://")
+          token.attrs[hrefAttributeIndex][1] = httpsHref;
+          console.log("Markdown - replaced http with https in ", href);
+        }
+
+        console.log("Markdown - adding target='_blank' to ", href);
+      }
+
+      // If you are sure other plugins can't add `target` - drop check below
+      const targetAttributeIndex = token.attrIndex('target');
+      if (targetAttributeIndex < 0) {
+        token.attrPush(['target', '_blank']);
+      } else {
+        token.attrs[targetAttributeIndex][1] = '_blank'; // replace value of existing attr
+      }
+
+      const relAttributeIndex = token.attrIndex('rel');
+      if (relAttributeIndex < 0) {
+        token.attrPush(['rel', 'noopener noreferrer']);
+      } else {
+        token.attrs[relAttributeIndex][1] = 'noopener noreferrer';
+      }
+
+      // pass token to default renderer.
+      return defaultRender(tokens, idx, options, env, self);
+    };
+  },
+};
+
 module.exports = function (eleventyConfig) {
+  {
+    const markdownIt = require('markdown-it');
+    const options = {
+      html: true,
+    };
+    const markdownLib = markdownIt(options);
+    markdown.addLinkTarget(markdownLib);
+
+    eleventyConfig.setLibrary('md', markdownLib);
+  }
+
   eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.addPlugin(lazyImagesPlugin, {
