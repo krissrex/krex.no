@@ -9,11 +9,11 @@ tags:
 ---
 
 <p>
-  <img class="w-full" src="/assets/images/post/pragmatic-tips.png" alt="Preview of pragmatic console tips">
+  <img class="w-full" src="/assets/images/posts/pragmatic-tips.png" alt="Preview of pragmatic console tips">
 </p>
 
 Install the following software: `jq`.  
-Download [pragmatic-tips.json](/assets/downloads/post/pragmatic-tips.json) and
+Download [pragmatic-tips.json](/assets/downloads/posts/pragmatic-tips.json) and
 place it somewhere your console can read it.
 
 Place the following code in
@@ -44,9 +44,7 @@ _pragmatic_tip
 
 ## Scraping the tips
 
-I used the following script on <a
-                                    href="https://pragprog.com/tips/">https://pragprog.com/tips/</a>
-website:
+I used the following script on [https://pragprog.com/tips/](https://pragprog.com/tips/) website:
 
 ```js
 x = [...document.querySelector('.tpp_tips_container').children].map(child =>
