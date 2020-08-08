@@ -17,20 +17,21 @@ pre {
 }
 
 .prose a.header-anchor {
-  @apply opacity-25 no-underline;
+  @apply no-underline;
   float: left;
-  padding-top: 0.5em;
-  margin-left: -27px;
+  margin-left: -43px;
+  margin-top: -0.5em;
+  padding: 16px; /* Increase hit rect */
   padding-right: 4px;
   line-height: 1;
   box-sizing: border-box;
   font-size: 16px;
 
-  visibility: hidden;
+  @apply opacity-0;
 }
 
 .prose :hover a.header-anchor {
-  visibility: visible;
+  @apply opacity-25;
 }
 
 @tailwind components;
