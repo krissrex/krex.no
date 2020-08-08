@@ -71,18 +71,18 @@ module.exports = function (eleventyConfig) {
     markdown.enhanceLinks(markdownLib);
 
     // Allows style to be added with {.myClass #id attr=value attr2="some value"}
-    const markdownItAttrs = require('markdown-it-attrs'); 
+    const markdownItAttrs = require('markdown-it-attrs');
     markdownLib.use(markdownItAttrs, {
-      allowedAttributes: ['id', 'class', /^data-.*$/]
-    }); 
+      allowedAttributes: ['id', 'class', 'width', 'height', /^data-.*$/],
+    });
 
-    const markdownItAnchor = require("markdown-it-anchor");
+    const markdownItAnchor = require('markdown-it-anchor');
     markdownLib.use(markdownItAnchor, {
       permalink: true,
-      permalinkSymbol: "🔗",
+      permalinkSymbol: '🔗',
       permalinkBefore: true,
       permalinkClass: 'header-anchor',
-      permalinkAttrs: () => ({"aria-hidden": "true"})
+      permalinkAttrs: () => ({ 'aria-hidden': 'true' }),
     });
 
     eleventyConfig.setLibrary('md', markdownLib);
