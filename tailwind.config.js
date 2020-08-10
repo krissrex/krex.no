@@ -7,7 +7,5 @@ module.exports = {
   variants: {
     textColor: ['responsive', 'hover', 'focus', 'visited'],
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require('@tailwindcss/typography')],
 };

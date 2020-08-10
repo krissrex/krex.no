@@ -92,7 +92,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(lazyImagesPlugin, {
     transformImgPath: (imgPath) => `./src/${imgPath}`,
-    imgSelector: "img:not(.nolazy)",
+    imgSelector: 'img:not(.nolazy)',
   });
 
   eleventyConfig.setEjsOptions({
