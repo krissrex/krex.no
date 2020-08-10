@@ -8,12 +8,11 @@
   _paq.push(['addDownloadExtensions', "json"]);
   _paq.push(['enableLinkTracking']);
   (function() {
-    var u="https://<%= matomo.host %>/";
+    var u="//<%= matomo.host %>/";
     _paq.push(['setTrackerUrl', u+'js']);
     _paq.push(['setSiteId', '<%= matomo.siteId %>']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.src=u+'js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<noscript><p><img class="nolazy" src="https://<%= matomo.host %>js?idsite=<%= matomo.siteId %>&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 <% } %>
