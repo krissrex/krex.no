@@ -15,7 +15,7 @@
       content="<%= (!!locals.description) ? description : site.description %>"
     />
     <meta name="author" content="<%= site.author %>" />
-    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:title" content="<%- title %>" />
     <meta
       property="og:description"
       content="<%= (!!locals.description) ? description : site.description %>"
@@ -39,7 +39,7 @@
           },
           "name": "<%= site.author %>"
         },
-        "headline": "<%= title %>",
+        "headline": "<%- title %>",
         "datePublished": "<%= date.toISOString() %>",
         "mainEntityOfPage": {
           "@type": "WebPage",
