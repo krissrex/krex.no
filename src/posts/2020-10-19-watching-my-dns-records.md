@@ -10,7 +10,7 @@ tags:
   - sysadmin
 ---
 
-> **Update 17th Oct:** I forced `curl` to use IPv4, as I sometimes got IPv6 back.
+> **Update 2020-11-17:** I forced `curl` to use IPv4, as I sometimes got IPv6 back.
 > And I added `Date` and `Message-ID` headers to email, as this reduces the SpamAssassin score ([I tested with this](https://dkimvalidator.com/)). 
 
 Home routers and ISPs are not always the best for hosting a website.
