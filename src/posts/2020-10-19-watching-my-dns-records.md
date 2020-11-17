@@ -10,6 +10,9 @@ tags:
   - sysadmin
 ---
 
+> **Update 17th Oct:** I forced `curl` to use IPv4, as I sometimes got IPv6 back.
+> And I added `Date` and `Message-ID` headers to email, as this reduces the SpamAssassin score ([I tested with this](https://dkimvalidator.com/)). 
+
 Home routers and ISPs are not always the best for hosting a website.
 One reason in particular, is the lack of static IP-addresses.
 So whenever my router restarts, I risk getting a new IP.
@@ -40,9 +43,10 @@ Put this into `current-ip.sh`:
 
 ```bash
 #!/bin/bash
-curl --silent canhazip.com
+curl --silent -4 canhazip.com
 ```
 
+The `-4` tells curl to use IPv4.
 Other alternatives:
 
 ```
@@ -82,6 +86,7 @@ Put this in `email-warning.py`:
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import email.utils
 from datetime import datetime
 from sys import argv
 
@@ -92,10 +97,12 @@ def send_email(dns_ip, current_ip):
         msg["From"] = "DNS IP Watcher <noreply@krex.no>"
         msg["To"] = "INSERT-YOUR-EMAIL-HERE@email.com" # Change this line
         msg["Subject"] = "[krex.no] DNS is invalid " + str(datetime.now())
+        msg["Date"] = email.utils.formatdate(localtime=True)
+        msg["Message-ID"] = email.utils.make_msgid(domain="krex.no")
         msg.attach(MIMEText(body, 'plain'))
 
         s.send_message(msg)
-        print("Sent message '%s' to %s" % (msg["Subject"], msg["To"]))
+        print("Sent message '%s' to %s. Message-ID: %s" % (msg["Subject"], msg["To"], msg["Message-ID"]))
 
 def main():
     if len(argv) != 3:
