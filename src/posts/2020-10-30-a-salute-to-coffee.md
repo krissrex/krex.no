@@ -9,8 +9,6 @@ tags:
   - norwegian
 ---
 
-# A salute to coffee
-
 I stumbled upon a song about coffee.
 A 1991 documentary about two 90 year old brothers
 from Sauda (see map below) featured a scene

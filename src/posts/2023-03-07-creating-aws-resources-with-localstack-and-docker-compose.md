@@ -10,8 +10,6 @@ tags:
   - kotlin
 ---
 
-# Creating AWS Resources with Localstack and Docker Compose
-
 To test AWS resources locally, you can simulate then in Docker with the `localstack/localstack` image.
 
 When spawning a server (which I call my "app" from now on), like a java/kotlin backend which polls AWS SQS and publishes to AWS SNS,
