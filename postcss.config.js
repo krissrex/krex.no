@@ -2,7 +2,7 @@
 const plugins = { '@tailwindcss/postcss': {} };
 
 if (process.env.NODE_ENV === 'production') {
-  plugins['cssnano'] = {
+  plugins.cssnano = {
     preset: [
       'default',
       {
