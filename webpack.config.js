@@ -27,15 +27,17 @@ module.exports = {
       patterns: [{ from: path.resolve(__dirname, 'public'), to: path.resolve(__dirname, '_site') }],
     }),
     new HtmlBundlerPlugin({
-      entry: [{
-        import: path.resolve(__dirname, 'webpack.html'),
-        filename: path.resolve(__dirname, 'src/_includes/layouts/webpack.ejs'),
-	data: {},
-      }],
+      entry: [
+        {
+          import: path.resolve(__dirname, 'webpack.html'),
+          filename: path.resolve(__dirname, 'src/_includes/layouts/webpack.ejs'),
+          data: {},
+        },
+      ],
       js: {},
       css: {
         filename: cssFileName,
-      }
+      },
     }),
   ],
   module: {
