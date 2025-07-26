@@ -41,7 +41,6 @@ module.exports = {
         excludes: [/.*\/webpack\.ejs$/],
       },
       minify: 'auto',
-      integrity: 'auto',
       js: {},
       css: {
         filename: cssFileName,
