@@ -35,28 +35,28 @@
     display: none;
   }
 
-  .prose a.header-anchor {
-    @apply no-underline;
-    float: left;
-    margin-left: -43px;
-    margin-top: -0.5em;
-    padding: 16px; /* Increase hit rect */
-    padding-right: 4px;
-    line-height: 1;
-    box-sizing: border-box;
-    font-size: 16px;
-
-    @apply opacity-0;
-  }
-
-  .prose :hover a.header-anchor {
-    @apply opacity-25;
-  }
-
   .prose code {
     @apply text-sm font-normal font-mono;
     background-color: rgba(27, 31, 35, 0.05);
     padding: 0.2em 0.4em;
     border-radius: 3px;
   }
+}
+
+.prose a.header-anchor {
+  @apply no-underline;
+  float: left;
+  margin-left: -43px;
+  margin-top: -0.5em;
+  padding: 16px; /* Increase hit rect */
+  padding-right: 4px;
+  line-height: 1;
+  box-sizing: border-box;
+  font-size: 16px;
+
+  @apply opacity-0;
+}
+
+.prose :hover a.header-anchor {
+  @apply opacity-25;
 }

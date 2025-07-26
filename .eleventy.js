@@ -71,10 +71,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addGlobalData('layout', 'layouts/base.ejs');
 
     const markdownIt = require('markdown-it');
-    const options = {
+    const markdownLib = markdownIt({
       html: true,
-    };
-    const markdownLib = markdownIt(options);
+    });
     markdown.enhanceLinks(markdownLib);
 
     // Allows style to be added with {.myClass #id attr=value attr2="some value"}
@@ -85,11 +84,11 @@ module.exports = function (eleventyConfig) {
 
     const markdownItAnchor = require('markdown-it-anchor');
     markdownLib.use(markdownItAnchor, {
-      permalink: true,
-      permalinkSymbol: '🔗',
-      permalinkBefore: true,
-      permalinkClass: 'header-anchor',
-      permalinkAttrs: () => ({ 'aria-hidden': 'true' }),
+      permalink: markdownItAnchor.permalink.ariaHidden({
+        class: 'header-anchor',
+        symbol: '🔗',
+        placement: 'before',
+      }),
     });
 
     eleventyConfig.setLibrary('md', markdownLib);

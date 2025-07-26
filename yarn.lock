@@ -2314,11 +2314,6 @@ entities@^6.0.1:
   resolved "https://registry.yarnpkg.com/entities/-/entities-6.0.1.tgz#c28c34a43379ca7f61d074130b2f5f7020a30694"
   integrity sha512-aN97NXWF6AWBTahfVOIrB/NShkzi5H7F9r1s9mD3cDj4Ko5f2qhhVoYMibXF7GlLveb/D2ioWay8lxI97Ven3g==
 
-entities@~2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/entities/-/entities-2.1.0.tgz"
-  integrity sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==
-
 env-paths@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/env-paths/-/env-paths-2.2.1.tgz#420399d416ce1fbe9bc0a07c62fa68d67fd0f8f2"
@@ -4128,13 +4123,6 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
-linkify-it@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.npmjs.org/linkify-it/-/linkify-it-3.0.3.tgz"
-  integrity sha512-ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==
-  dependencies:
-    uc.micro "^1.0.1"
-
 linkify-it@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/linkify-it/-/linkify-it-5.0.0.tgz#9ef238bfa6dc70bd8e7f9572b52d369af569b421"
@@ -4385,26 +4373,15 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   resolved "https://registry.npmjs.org/map-obj/-/map-obj-1.0.1.tgz"
   integrity "sha1-2TPOuSBdgr3PSIb2dCvcK03qFG0= sha512-7N/q3lyZ+LVCp7PzuxrJr4KMbBE2hW7BT7YNia330OFxIf4d3r5zVpicP2650l7CPN6RM9zOJRl3NGpqSiw3Eg=="
 
-markdown-it-anchor@^8.4.1:
-  version "8.4.1"
-  resolved "https://registry.npmjs.org/markdown-it-anchor/-/markdown-it-anchor-8.4.1.tgz"
-  integrity sha512-sLODeRetZ/61KkKLJElaU3NuU2z7MhXf12Ml1WJMSdwpngeofneCRF+JBbat8HiSqhniOMuTemXMrsI7hA6XyA==
+markdown-it-anchor@^9.2.0:
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-9.2.0.tgz#89375d9a2a79336403ab7c4fd36b1965cc45e5c8"
+  integrity sha512-sa2ErMQ6kKOA4l31gLGYliFQrMKkqSO0ZJgGhDHKijPf0pNFM9vghjAh3gn26pS4JDRs7Iwa9S36gxm3vgZTzg==
 
-markdown-it-attrs@^4.1.3:
-  version "4.1.3"
-  resolved "https://registry.npmjs.org/markdown-it-attrs/-/markdown-it-attrs-4.1.3.tgz"
-  integrity sha512-d5yg/lzQV2KFI/4LPsZQB3uxQrf0/l2/RnMPCPm4lYLOZUSmFlpPccyojnzaHkfQpAD8wBHfnfUW0aMhpKOS2g==
-
-markdown-it@^12.3.2:
-  version "12.3.2"
-  resolved "https://registry.npmjs.org/markdown-it/-/markdown-it-12.3.2.tgz"
-  integrity sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==
-  dependencies:
-    argparse "^2.0.1"
-    entities "~2.1.0"
-    linkify-it "^3.0.1"
-    mdurl "^1.0.1"
-    uc.micro "^1.0.5"
+markdown-it-attrs@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/markdown-it-attrs/-/markdown-it-attrs-4.3.1.tgz#1e1f9bd2c87276d8f4ed74ad4268df428b7deee6"
+  integrity sha512-/ko6cba+H6gdZ0DOw7BbNMZtfuJTRp9g/IrGIuz8lYc/EfnmWRpaR3CFPnNbVz0LDvF8Gf1hFGPqrQqq7De0rg==
 
 markdown-it@^14.1.0:
   version "14.1.0"
@@ -4437,11 +4414,6 @@ mdn-data@2.0.4:
   version "2.0.4"
   resolved "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.4.tgz"
   integrity sha512-iV3XNKw06j5Q7mi6h+9vbx23Tv7JkjEVgKHW4pimwyDGWm0OIQntJJ+u1C6mg6mK1EaTv42XQ7w76yuzH7M2cA==
-
-mdurl@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/mdurl/-/mdurl-1.0.1.tgz"
-  integrity "sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4= sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g=="
 
 mdurl@^2.0.0:
   version "2.0.0"
@@ -5714,11 +5686,6 @@ prettier@^2.0.5:
   resolved "https://registry.npmjs.org/prettier/-/prettier-2.5.1.tgz"
   integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
 
-prismjs@^1.25.0:
-  version "1.27.0"
-  resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.27.0.tgz"
-  integrity sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==
-
 prismjs@^1.30.0:
   version "1.30.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.30.0.tgz#d9709969d9d4e16403f6f348c63553b19f0975a9"
@@ -6879,11 +6846,6 @@ type-fest@^0.5.1:
   version "0.5.2"
   resolved "https://registry.npmjs.org/type-fest/-/type-fest-0.5.2.tgz"
   integrity sha512-DWkS49EQKVX//Tbupb9TFa19c7+MK1XmzkrZUR8TAktmE/DizXoaoJV6TZ/tSIPXipqNiRI6CyAe7x69Jb6RSw==
-
-uc.micro@^1.0.1, uc.micro@^1.0.5:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/uc.micro/-/uc.micro-1.0.6.tgz"
-  integrity sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==
 
 uc.micro@^2.0.0, uc.micro@^2.1.0:
   version "2.1.0"
