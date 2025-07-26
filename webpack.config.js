@@ -17,10 +17,13 @@ module.exports = {
   entry: entries,
   output: {
     path: path.resolve(__dirname, '_site/assets'),
-    publicPath: '/',
+    publicPath: '/assets/',
   },
   optimization: {
     moduleIds: 'deterministic',
+  },
+  watchOptions: {
+    ignored: ['**/node_modules', 'src/_includes/layouts/webpack.ejs'],
   },
   plugins: [
     new CopyWebpackPlugin({
@@ -29,11 +32,16 @@ module.exports = {
     new HtmlBundlerPlugin({
       entry: [
         {
-          import: path.resolve(__dirname, 'webpack.html'),
-          filename: path.resolve(__dirname, 'src/_includes/layouts/webpack.ejs'),
+          import: './webpack.html',
+          filename: '../../../src/_includes/layouts/webpack.ejs',
           data: {},
         },
       ],
+      watchFiles: {
+        excludes: [/.*\/webpack\.ejs$/],
+      },
+      minify: 'auto',
+      integrity: 'auto',
       js: {},
       css: {
         filename: cssFileName,

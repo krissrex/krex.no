@@ -3,7 +3,7 @@ const dateFns = require('date-fns');
 const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const chalk = require('chalk');
-const ejsPlugin = require("@11ty/eleventy-plugin-ejs");
+const ejsPlugin = require('@11ty/eleventy-plugin-ejs');
 
 const markdown = {
   /** Will add `target="_blank"` for links and convert http to https. */
@@ -66,8 +66,9 @@ module.exports = function (eleventyConfig) {
   {
     eleventyConfig.addPlugin(ejsPlugin, {
       rmWhitespace: true,
-      context: { dateFns }
+      context: { dateFns },
     });
+    eleventyConfig.addGlobalData('layout', 'layouts/base.ejs');
 
     const markdownIt = require('markdown-it');
     const options = {
@@ -118,7 +119,6 @@ module.exports = function (eleventyConfig) {
 
     return content;
   });
-
 
   return {
     dir: { input: 'src', output: '_site', data: '_data' },
