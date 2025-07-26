@@ -1,6 +1,5 @@
 const glob = require('glob');
 const path = require('path');
-const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 

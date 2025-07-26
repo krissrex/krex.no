@@ -1,9 +1,12 @@
-const htmlmin = require('html-minifier');
-const dateFns = require('date-fns');
-const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const chalk = require('chalk');
-const ejsPlugin = require('@11ty/eleventy-plugin-ejs');
+import * as htmlmin from 'html-minifier';
+import * as dateFns from 'date-fns';
+import lazyImagesPlugin from 'eleventy-plugin-lazyimages';
+import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+import chalk from 'chalk';
+import ejsPlugin from '@11ty/eleventy-plugin-ejs';
+import markdownIt from 'markdown-it';
+import markdownItAttrs from 'markdown-it-attrs';
+import markdownItAnchor from 'markdown-it-anchor';
 
 const markdown = {
   /** Will add `target="_blank"` for links and convert http to https. */
@@ -62,7 +65,7 @@ const markdown = {
   },
 };
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
   {
     eleventyConfig.addPlugin(ejsPlugin, {
       rmWhitespace: true,
@@ -70,19 +73,16 @@ module.exports = function (eleventyConfig) {
     });
     eleventyConfig.addGlobalData('layout', 'layouts/base.ejs');
 
-    const markdownIt = require('markdown-it');
     const markdownLib = markdownIt({
       html: true,
     });
     markdown.enhanceLinks(markdownLib);
 
     // Allows style to be added with {.myClass #id attr=value attr2="some value"}
-    const markdownItAttrs = require('markdown-it-attrs');
     markdownLib.use(markdownItAttrs, {
       allowedAttributes: ['id', 'class', 'width', 'height', /^data-.*$/],
     });
 
-    const markdownItAnchor = require('markdown-it-anchor');
     markdownLib.use(markdownItAnchor, {
       permalink: markdownItAnchor.permalink.ariaHidden({
         class: 'header-anchor',
@@ -122,4 +122,4 @@ module.exports = function (eleventyConfig) {
   return {
     dir: { input: 'src', output: '_site', data: '_data' },
   };
-};
+}
