@@ -65,6 +65,13 @@ Install [CMake](https://cmake.org/download/). I got the *Windows x64 Installer* 
 
 At this point, we have installed several executables and added them to the PATH. To ensure the changes to PATH take effect, **you should reboot your computer now**.
 
+### 6) Doxygen and Graphviz (optional)
+
+The [online documentation](https://freecad.github.io/SourceDoc/modules.html) is currently outdated (2022).
+To build your own docs, install doxygen and graphviz.
+- `winget install -e --id DimitriVanHeesch.Doxygen`
+- `winget install -e --id Graphviz.Graphviz`
+
 ## Cloning FreeCAD
 
 Open the file explorer in a folder you want to clone FreeCAD to. I chose `D:/dev/`, as a `FreeCAD` folder will automatically be created in the next step.
@@ -140,6 +147,11 @@ You can find this list in the readme for FreeCAD-LibPack on github as well.
 > 
 > *I cannot verify that all these settings are correct.* Please verify on your own, if you need this.
 
+> Optional:
+> If you want to set up doxygen, run `which doxygen.exe` and it will probably output `C:\Program Files\doxygen\bin\doxygen.exe`.
+> Set this in CMAKE under `DOXYGEN_EXECUTABLE`.
+> Graphviz does not add to path, so you cannot run `which dot.exe`. With a file explorer, you quickly discover that it is installed to `C:\Program Files\Graphviz\bin\dot.exe`. Set this as `DOXYGEN_DOT_EXECUTABLE`.
+> You should also set `C:\Program Files\Graphviz\bin\` on your `Path`, because winget did not. Confirm that `dot.exe` is available in a terminal. 
 
 Now to the final, and optional step: Removing compilation units for modules you do not want.
 By default, FreeCAD will build a lot of modules and workbenches. We can save some time by disabling the ones you don't need.
@@ -150,16 +162,18 @@ I disable the following:
 * `BUILD_CAM`
 * `BUILD_FEM`
 * `BUILD_FEM_NETGEN`
+* `BUILD_FLAT_MESH`
 * `BUILD_OPENSCAD`
 * `BUILD_REVERSEENGINEERING`
 * `BUILD_ROBOT`
+* `BUILD_WEB`
 
 Now click *Configure* for the last time.  
 This time, the configuration will take considerable longer time because of the LibPack copying. The text output will say `Copying LibPack [...]` for quite a while.
 Let it work, it is not finished even if no more text shows up. When the copy is done, a lot more text will appear.
 Patience!
 
-After about 5 minutes, you should see `Configuring done`.
+After about 5 minutes, you should see `Configuring done`. If any options are red now, inspect them and click Configure until no red options exist.
 Now we click *Generate*, and this is what creates the files for `ninja`.
 This only takes about 10 seconds, and ends with the message `Generating done`. You can now close CMake GUI.
 
@@ -176,6 +190,10 @@ If everything is correct, you should see messages like `Compiling`, `Building` a
 The compilation will use quite a bit of disk space now, about 13GB.
 If precompiled headers are turned on (`FREECAD_USE_PCH`), this will create an additional 9GB of `.pch` files.
 
+> To build the doxygen documentation you run `ninja DevDoc` for the full 7,5GB of output in `./cmake-build-release-ninja-msvc/doc/SourceDocu/html`. Alternatively you can run `ninja WebDoc` for a smaller 600MB build without diagrams, which is what the [online documentation](https://github.com/FreeCAD/SourceDoc) uses.
+> These targets (DevDoc and WebDoc) refer to Doxyfiles in `src/Doc/BuildDevDoc.cfg`.
+> Creating the docs takes up to an hour. You do not want to rebuild this often.
+> When it is finished, you can open `file:///C:/dev/FreeCAD-local-ninja-msvc-reldebinfo/doc/SourceDocu/html/index.html` in a browser.
 
 ### Troubleshooting
 
