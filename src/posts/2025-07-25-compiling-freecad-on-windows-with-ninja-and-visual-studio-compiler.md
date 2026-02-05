@@ -244,9 +244,10 @@ You should go back to GitHub and fork the FreeCAD repository, so you can create 
 Then, set your fork as a remote in `git` with `git remote add <fork-name> <my-fork-url.git>`.
 When you have solved an issue on the FreeCAD repo, you create a Pull-Request from your branch in the fork repo to the `master` of the original FreeCAD repo.
 
-Visit the [FreeCAD wiki > Developer Hub](https://wiki.freecad.org/Developer_hub) and read the sections under *Modifying FreeCAD*, *Module developer's guide* and *Build Support Tools*.
-Also check out the forum at [FreeCAD forum > Users > Install / Compile and Run](https://forum.freecad.org/viewforum.php?f=4) and 
+- Visit the [FreeCAD wiki > Developer Hub](https://wiki.freecad.org/Developer_hub) and read the sections under *Modifying FreeCAD*, *Module developer's guide* and *Build Support Tools*.
+- Also check out the forum at [FreeCAD forum > Users > Install / Compile and Run](https://forum.freecad.org/viewforum.php?f=4) and 
 [FreeCAD forum > Development](https://forum.freecad.org/viewforum.php?f=6).
+- Read the [Developer's Handbook](https://freecad.github.io/DevelopersHandbook/) 
 
 **Tip:** If you get the hang of FreeCAD development, look for [Bounties in Github](https://github.com/FreeCAD/FreeCAD/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22%3Adart%3A%20Bounty%22) to make some money!
 
